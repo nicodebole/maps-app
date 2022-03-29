@@ -6,18 +6,18 @@ class MapState extends Equatable {
 
   const MapState({
     this.isMapInitialized = false,
-    this.isFollowingUser = false,
+    this.isFollowingUser = true,
   });
 
   MapState copyWith({
     bool? isMapInitialized,
-    bool? followUser,
+    bool? isFollowingUser,
   }) =>
       MapState(
         isMapInitialized: isMapInitialized ?? this.isMapInitialized,
-        isFollowingUser: followUser == this.isFollowingUser,
+        isFollowingUser: isFollowingUser == this.isFollowingUser,
       );
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [isMapInitialized, isFollowingUser];
 }
